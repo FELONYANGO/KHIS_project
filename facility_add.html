@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My registration</title>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: black;
+        }
+        
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: white;
+        }
+        /* alert*/
+        .alert{
+          text-align: center;
+          padding: 10px;
+          background: #79c879;
+          color: #fff;
+          margin-bottom: 10px;
+          width: 70%;
+          display: none;
+        }
+        /* Full-width input fields */
+        input[type=text], input[type=email], input[type=date], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        
+        input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+        
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        
+        /* Set a style for the submit button */
+        .registerbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          opacity: 0.9;
+        }
+        
+        .registerbtn:hover {
+          opacity: 1;
+        }
+        
+        /* Add a blue text color to links */
+        a {
+          color: dodgerblue;
+        }
+        
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+          background-color: #f1f1f1;
+          text-align: center;
+        }
+        </style>
+</head>
+<body>
+    
+    <form id="contactform">
+        <div class="container">
+          <h1>Facility data entry</h1>
+          <p>Please Enter all the details for a facility.</p>
+          <hr>
+          
+
+          <label for="f_code"><b>Facility code</b></label>
+          <input type="text" placeholder="Enter Facility code" name="f_code" id="f_code" required>
+
+          <label for="f_name"><b>Facility name</b></label>
+          <input type="text" placeholder="Enter Facility name" name="f_name" id="f_name" required> 
+          <label for="county"><b>County</b></label>
+          <input type="text" placeholder="Enter County" name="county" id="county" required>
+        
+          <hr>
+      
+          <button type="submit" class="registerbtn">Save to database</button>
+        </div>
+        
+      </form>
+    
+      <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
+      <script src="facilities.js"></script>
+</body>
+</html>

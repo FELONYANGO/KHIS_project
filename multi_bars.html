@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+    <meta charset="utf-8">
+    <title>ZingChart: My Bar Chart</title>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  </head>
+  <body>
+    <div id="twomyChart"></div>
+    <script>
+        var chartData = {
+          type: 'bar',
+          "title":{  
+             "text":" Nairobi County"  
+             }, 
+             "scale-y":{  
+                label: { /* Scale Title */
+                  text: "Number of Beds and cots",
+                  },
+                  values: "0:120:10"
+                },
+             "scale-x":{  
+                label: { /* Scale Title */
+                  text: "Health Facilities",
+                  },
+                  labels: ["Kenyatta <br> Hospital", "Pumwani", "Mama Lucy","Kayole <br>Hospital", "Nairobi <br>hospital"],
+                  "items-overlap":true,  
+                 "item":{  
+                     "font-angle":-45,
+                      "offset-x":"7px"
+                     }  
+                },
+          series: [
+            { values: [43, 78, 95, 20, 80],
+              'background-color': "#0000FF"
+            },
+            {
+              values: [25, 57, 49, 60, 99],
+              'background-color':"#008000"
+            }
+          ]
+           };
+        zingchart.render({
+          id: 'twomyChart',
+          data: chartData,
+          width: "90%"
+        });
+      </script>
+      <div style="margin-left: 10%;">
+        <h2>Key</h2>
+        <h3 style="color: #0000FF;">Beds</h3>
+        <h3 style="color: #008000;">Cots</h3>
+      </div>
+      
+  </body>
+</html>
+
+

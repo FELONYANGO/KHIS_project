@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function mmyfilterfunction()
+        {
+          var region = document.getElementById('region').value;
+          console.log(region);
+        }
+    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body{
+        width: 100%;
+    }
+#filter_subcounty{
+          width: 70%;
+          display: none;
+        }
+#filter_county{
+    width: 70%;
+          display: none;
+}
+</style>
+</head>     
+
+<body>
+
+
+<form action="" id="filter">
+    <h2>Data Visualizer</h2>
+    <label for="county"><h3><b>Region scope</b></h3></label>
+      <input type="text" placeholder="Enter teh region scope, county, sub-county or ward" id="region"><br><br>
+      <button type="submit" class="registerbtn" id="my_button" onclick="myfilterfunction();" >Continue</button>
+</form>
+<form action="" id="filter_county">
+      <label for="county">County Name</label>
+      <button type="submit" class="registerbtn" id="my_button" >Search for all facilities in the country</button>
+</form>
+<form action="" id="filter_subcounty">
+    <h2>Data Visualizer</h2>
+    <select name="region" required>
+        <option value="" disabled selected hidden>Select region</option>
+        <option value="County">county</option>
+        <option value="Sub_county">sub-county</option>
+        <option value="ward">Ward</option>
+      </select>
+      <button type="submit" class="registerbtn" id="my_button" >Search for all facilities in the country</button>
+</form>
+
+</body>
+</html>

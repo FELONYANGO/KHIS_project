@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+    <meta charset="utf-8">
+    <title>ZingChart: My Bar Chart</title>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  </head>
+  <body>
+    <div id="myChart"></div>
+    <script>
+        var chartData = {
+          type: 'bar',
+          "title":{  
+             "text":" Kakamega County"  
+             }, 
+             "scale-y":{  
+                label: { /* Scale Title */
+                  text: "KEPH Levels",
+                  },
+                  values: "0:8:1"
+                },
+             "scale-x":{  
+                label: { /* Scale Title */
+                  text: "Health Facilities",
+                  },
+                  labels: ["Refferal", "dental ", "lurambi","mwiyala", "tea zone"]
+                },
+          series: [
+            { values: [4, 2, 5, 3, 4],
+                'background-color': "#6666FF"
+            },
+            //{ values: [25, 57, 49, 60] }
+          ]
+           };
+        zingchart.render({
+          id: 'myChart',
+          data: chartData,
+          height: 400,
+          width: 600
+        });
+      </script>
+  </body>
+</html>
+

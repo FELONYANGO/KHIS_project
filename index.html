@@ -39,12 +39,12 @@
           border: 1px solid #f1f1f1;
           margin-bottom: 25px;
         }
+
+   
         
         /* Set a style for the submit button */
         .registerbtn {
-          background-color: blue;
-          float: right;
-          margin-right:20px;
+          background-color: #04AA6D;
           color: white;
           padding: 16px 20px;
           margin: 8px 0;
@@ -53,7 +53,17 @@
           cursor: pointer;
           opacity: 0.9;
         }
-    
+    /* start for styling piechart section*/
+    #mypieChart {
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+    }
+ 
+    .zc-ref {
+      display: none;
+    }
+    /* end for styling piechart section*/
         </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,10 +93,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
 
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
 </head>
 
@@ -128,6 +135,16 @@
     <!-- End Main Top -->
      <div class="row">
          <div class="col-lg-6" style="padding: 20px;">
+          <div>
+            <form id="country_kenya">
+              <button type="submit" class="registerbtn" id="my_button" >Click to Search for all facilities in the country</button>
+              <p >
+                <ol id="county_list">
+        
+                </ol>
+            </p>
+            </form>
+          </div>
           <form id="contactform">
             <div class="container">
               <h2>Advanced KMHFL data filter</h2>
@@ -202,7 +219,183 @@
                  <h4>You can filter data by facility name, code, county, sub_county, ward, operational status e.t.c</h4>
 
                  <div class="banner-frame"> <img class="img-thumbnail img-fluid" src="images/kenya.png" alt="" />
-            </p>
+
+                <center>  <div id="myChart" style="margin-top: 20px;"></div> </center>
+    <script>
+        var chartData = {
+          type: 'bar',
+          "title":{  
+             "text":" Kakamega County"  
+             }, 
+             "scale-y":{  
+                label: { /* Scale Title */
+                  text: "KEPH Levels",
+                  },
+                  values: "0:8:1"
+                },
+             "scale-x":{  
+                label: { /* Scale Title */
+                  text: "Health Facilities",
+                  },
+                  labels: ["Refferal", "dental ", "lurambi","mwiyala", "tea zone"]
+                },
+          series: [
+            { values: [4, 2, 5, 3, 4],
+                'background-color': "#6666FF"
+            },
+            //{ values: [25, 57, 49, 60] }
+          ]
+           };
+        zingchart.render({
+          id: 'myChart',
+          data: chartData,
+          width: "90%"
+        });
+      </script>
+
+   <center><div id="twomyChart"></div></center>
+<script>
+    var chartData = {
+      type: 'bar',
+      "title":{  
+         "text":" Nairobi County"  
+         }, 
+         "scale-y":{  
+            label: { /* Scale Title */
+              text: "Number of Beds and cots",
+              },
+              values: "0:120:10"
+            },
+         "scale-x":{  
+            label: { /* Scale Title */
+              text: "Health Facilities",
+              },
+              labels: ["Kenyatta <br> Hospital", "Pumwani", "Mama Lucy","Kayole <br>Hospital", "Nairobi <br>hospital"],
+                  "items-overlap":true,  
+                 "item":{  
+                     "font-angle":-45,
+                      "offset-x":"7px"
+                     }  
+              
+            },
+      series: [
+        { values: [43, 78, 95, 20, 80],
+          'background-color': "#0000FF"
+        },
+        {
+          values: [25, 57, 49, 60, 99],
+          'background-color':"#008000"
+        }
+      ]
+       };
+    zingchart.render({
+      id: 'twomyChart',
+      data: chartData,
+      width: "90%"
+    });
+  </script>
+  <center>
+    <div style="margin-left: 10%;">
+       
+        <h2>Key</h2>
+        <h3 style="color: #0000FF;"> <b> Beds</b></h3>
+        <h3 style="color: #008000;"> <b>Cots</b> </h3>
+    
+  </div>
+</center>
+  
+
+<div id='mypieChart'><a class="zc-ref" href="https://www.zingchart.com/">pie chart design</a></div>
+  <script>
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+    var myConfig = {
+      type: "pie",
+      plot: {
+        borderColor: "#2B313B",
+        borderWidth: 5,
+        // slice: 90,
+        valueBox: {
+          placement: 'out',
+          text: '%t\n%npv%',
+          fontFamily: "Open Sans"
+        },
+        tooltip: {
+          fontSize: '18',
+          fontFamily: "Open Sans",
+          padding: "5 10",
+          text: "%npv%"
+        },
+        animation: {
+          effect: 2,
+          method: 5,
+          speed: 900,
+          sequence: 1,
+          delay: 3000
+        }
+      },
+      source: {
+        text: 'gs.statcounter.com',
+        fontColor: "#8e99a9",
+        fontFamily: "Open Sans"
+      },
+      title: {
+        fontColor: "#8e99a9",
+        text: 'Nairobi facility patients attendance rate',
+        align: "left",
+        offsetX: 10,
+        fontFamily: "Open Sans",
+        fontSize: 20
+      },
+      subtitle: {
+        offsetX: 10,
+        offsetY: 10,
+        fontColor: "#8e99a9",
+        fontFamily: "san serif",
+        fontSize: "16",
+        text: 'Top 5 highly visited June 2021',
+        align: "left"
+      },
+      plotarea: {
+        margin: "20 0 0 0"
+      },
+      series: [{
+          values: [11.38],
+          text: "Nairobi Hospital",
+          backgroundColor: '#50ADF5',
+        },
+        {
+          values: [56.94],
+          text: "Kenyatta Hospital",
+          backgroundColor: '#FF7965',
+          detached: true
+        },
+        {
+          values: [14.52],
+          text: 'Pumwani',
+          backgroundColor: '#FFCB45',
+          detached: true
+        },
+        {
+          text: 'Kilimani',
+          values: [9.69],
+          backgroundColor: '#6877e5'
+        },
+        {
+          text: 'Mama Lucy',
+          values: [7.48],
+          backgroundColor: '#6FB07F'
+        }
+      ]
+    };
+ 
+    zingchart.render({
+      id: 'mypieChart',
+      data: myConfig,
+      height: '100%',
+      width: '100%'
+    });
+  </script>
+    </p>
            
         </div>
   </div>
@@ -244,6 +437,7 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-analytics.js"></script>
           <script src="login.js"></script>
+          <script src="country.js"></script>
 </body>
 
 </html>
