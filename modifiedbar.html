@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      
+    <meta charset="utf-8">
+    <title>ZingChart: My Bar Chart</title>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  </head>
+  <body>
+    <div id="myChart"></div>
+    <script>
+        var region = "county"
+        var region_name = "kakamega";
+        title_name = region_name+"  "+region
+        y_axis_text = "Frequency of KPEH Levels in "+title_name
+        var chartData = {
+          type: 'bar',
+          "title":{  
+             "text": title_name  
+             }, 
+             "scale-y":{  
+                label: { /* Scale Title */
+                  text: y_axis_text,
+                  },
+                  values: "0:8:1"
+                },
+             "scale-x":{  
+                label: { /* Scale Title */
+                  text: "KEPH Levels",
+                  },
+                  labels: ["Level 1", "Level 2 ", "Level 3","Level 4", "Level 5"]
+                },
+          series: [
+            { values: [4, 2, 5, 3, 4],
+                'background-color': "#6666FF"
+            },
+          ]
+           };
+        zingchart.render({
+          id: 'myChart',
+          data: chartData,
+          width: "80%"
+        });
+      </script>
+  </body>
+</html>

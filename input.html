@@ -77,16 +77,21 @@
           text-align: center;
         }
         </style>
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 </head>
 <body>
     
     <form id="form_input">
-        <label for="f_name">Enter name</label>
-        <input type="text" placeholder = "Enter you name" name="f_name" id="f_name">
-        
+        <label for="region">Enter region to filter with</label>
+        <input type="text" placeholder = "county or sub_county or ward(all small letters)" name="region" id="region" required>
+        <label for="region_name">Enter region name</label>
+        <input type="text" placeholder = "county name or sub_county name or ward name(all small letters)" name="region_name" id="region_name" required>
           <button type="submit" class="registerbtn" id="my_button" >Submit</button>
         </div>
+
       </form>
+
+      <div id="myChart"></div>
     
       <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
 
