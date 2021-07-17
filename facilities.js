@@ -25,36 +25,49 @@ function submitForm(e)
     // get values now
     var f_code = document.getElementById('f_code').value;
     var f_name = document.getElementById('f_name').value;
+    var f_type = document.getElementById('f_type').value;
+    var f_category = document.getElementById('f_category').value;
+    var keph_level = document.getElementById('keph_level').value;
     var county = document.getElementById('county').value;
+    var sub_county = document.getElementById('sub_county').value;
+    var ward = document.getElementById('ward').value;
+    var beds = document.getElementById('beds').value;
+    var cots = document.getElementById('cots').value;
+    var operation = document.getElementById('operation').value;
 
 
     // save the details now by calling savedetails function
-    savedetails(f_code, f_name, county);
-    document.getElementById("contactform").reset();
-    //Show alert
-    //document.querySelector('.alert').style.display = 'block';
-    //alert("registration succeccesfull, proceed to login");
+    savedetails(f_code, f_name, f_type, f_category, keph_level, county, sub_county, ward, beds, cots, operation);
     
+    //Show alert
+    document.querySelector('.alert').style.display = 'block';
     
     //hide alert after 3 seconds
-    //setTimeout(function(){
-    //  document.querySelector('.alert').style.display = 'none';
-  // }, 6000);
-  
+    setTimeout(function(){
+      document.querySelector('.alert').style.display = 'none';
+   }, 6000);
+  document.getElementById("contactform").reset();
   // window.location.href = "login.html"; 
 }
 
 
 // save messages to firebase
-function savedetails(f_code, f_name, county)
+function savedetails(f_code, f_name, f_type, f_category, keph_level, county, sub_county, ward, beds, cots, operation)
 {
    var newregistersRef = registerRef.push();
    newregistersRef.set({
        f_code: f_code,
        f_name: f_name,
-       county: county
+       f_type: f_type,
+       f_category: f_category,
+       keph_level: keph_level,
+       county: county,
+       sub_county: sub_county,
+       ward: ward,
+       beds: beds,
+       cots: cots,
+       operation: operation
    });
-   //retriveinfo();
 }
 
 

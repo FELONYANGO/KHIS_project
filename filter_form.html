@@ -1,52 +1,137 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <script>
-        function mmyfilterfunction()
+        function filter_function()
         {
-          var region = document.getElementById('region').value;
-          console.log(region);
+            var region = document.getElementById('region').value;
+            console.log(region);
+
         }
     </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-    body{
-        width: 100%;
-    }
-#filter_subcounty{
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My registration</title>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Add padding to containers */
+        .container {
+          padding: 16px;
+          background-color: white;
+        }
+      
+        /* Full-width input fields */
+        input[type=text], input[type=email], input[type=date], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+        
+        input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+        
+        /* Overwrite default styles of hr */
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+        
+        /* Set a style for the submit button */
+        .registerbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          opacity: 0.9;
+        }
+        
+        .registerbtn:hover {
+          opacity: 1;
+        }
+        
+        /* Add a blue text color to links */
+        a {
+          color: dodgerblue;
+        }
+        
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+          background-color: #f1f1f1;
+          text-align: center;
+        }
+
+        #county_region{
           width: 70%;
           display: none;
         }
-#filter_county{
+     #sub_county_region{
     width: 70%;
           display: none;
-}
-</style>
-</head>     
-
+         }
+         #ward_region{
+    width: 70%;
+          display: none;
+         }
+        </style>
+</head>
 <body>
-
-
-<form action="" id="filter">
-    <h2>Data Visualizer</h2>
-    <label for="county"><h3><b>Region scope</b></h3></label>
-      <input type="text" placeholder="Enter teh region scope, county, sub-county or ward" id="region"><br><br>
-      <button type="submit" class="registerbtn" id="my_button" onclick="myfilterfunction();" >Continue</button>
-</form>
-<form action="" id="filter_county">
-      <label for="county">County Name</label>
-      <button type="submit" class="registerbtn" id="my_button" >Search for all facilities in the country</button>
-</form>
-<form action="" id="filter_subcounty">
-    <h2>Data Visualizer</h2>
-    <select name="region" required>
-        <option value="" disabled selected hidden>Select region</option>
-        <option value="County">county</option>
-        <option value="Sub_county">sub-county</option>
-        <option value="ward">Ward</option>
-      </select>
-      <button type="submit" class="registerbtn" id="my_button" >Search for all facilities in the country</button>
-</form>
-
+    
+    <form id="contactform">
+        <div class="container">
+          <h1>Data visualizer</h1>
+          <h2>Select parameters you want to visualize</h2>
+          <label for="region"><h2><b>Region scope</b></h2></label>
+          <input type="text" placeholder="Enter the region i.e county, sub-county or ward" name="region" id="region" required>
+      
+          <button type="submit" class="registerbtn">continue</button>
+        </div>
+        
+      </form>
+      <form id="county_region">
+        <div class="container">
+          <label for="region"><h2><b>Region scope</b></h2></label>
+          <input type="text" placeholder="Enter the region i.e county, sub-county or ward" name="region" id="region" required>
+      
+          <button type="submit" class="registerbtn">continue</button>
+        </div>
+        
+      </form>
+      <form id="sub_county_region">
+        <div class="container">
+          <label for="region"><h2><b>Region scope</b></h2></label>
+          <input type="text" placeholder="Enter the region i.e county, sub-county or ward" name="region" id="region" required>
+      
+          <button type="submit" class="registerbtn">continue</button>
+        </div>
+        
+      </form>
+      <form id="ward_region">
+        <div class="container">
+          <label for="region"><h2><b>Region scope</b></h2></label>
+          <input type="text" placeholder="Enter the region i.e county, sub-county or ward" name="region" id="region" required>
+      
+          <button type="submit" class="registerbtn">continue</button>
+        </div>
+        
+      </form>
+    
 </body>
 </html>
