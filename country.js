@@ -1,4 +1,6 @@
+//database API configuration just a code copied from the firebase
 // Your web app's Firebase configuration
+
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyCcCth4J1GC0R-EuA7mTo7qVjdMD5SITKQ",
@@ -12,13 +14,15 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+//End of configuration
 
+//An event listener for submission
 document.getElementById('country_kenya').addEventListener('submit', submitForm);
 
 function submitForm(e)
 {
     e.preventDefault();
-   document.getElementById("my_button").disabled = true;
+    document.getElementById("my_button").disabled = true;
     retriveinfo();
 }
 
@@ -29,15 +33,13 @@ function retriveinfo()
 }
 
 
-//defining the function now
+//defining the function for data access now
 
 function gotdata(data)
 {
-  //console.log(data.val());
   var info = data.val();
   var keys = Object.keys(info);
-  //console.log(keys);
-  //document.getElementById('userslist').value = "";
+  //we loop through the whole database from the first key to the last
    var index = 0;
   for ( var i = 0; i < keys.length; i++)
   {
@@ -46,10 +48,18 @@ function gotdata(data)
     //console.log(j)
     var f_code = info[j].f_code;
     var f_name = info[j].f_name;
+    var f_type = info[j].f_type;
+    var f_category = info[j].f_category;
+    var keph_level = info[j].keph_level;
     var county = info[j].county;
-    //console.log(firstname, lastname, username, email);
-    //var li = document.createElement('li', firstname +'  '+lastname+'  '+username);
-    // li.parent('userslist');
-   document.getElementById("county_list").innerHTML += index +".   " +f_code +"     " +f_name+"    " +county+"<br />";
+    var sub_county = info[j].sub_county;
+    var ward = info[j].ward;
+    var beds = info[j].beds;
+    var cots = info[j].cots;
+    var operation = info[j].operation;
+    //geting the data displayed in the html page
+   document.getElementById("county_list").innerHTML += index +".  Fcode:  " +f_code +", F Name:    " 
+   +f_name+"<br /> F Type:   " +f_type+", F Category:    "+f_category+", KEPH Level:   "+keph_level+"<br />  County:    "+county+" Sub-County:    "
+   +sub_county+", Ward:   "+ward+"<br />  No.of.Beds:   "+beds+", No.of.cots   "+cots+", Operational status:    "+operation+"<br />";
   }
 }
